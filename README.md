@@ -14,6 +14,10 @@ Welcome to the Memory Game! This is a simple web-based memory game built using H
 
 Check out the live demo [here](https://sanskargupta0.github.io/Memory-Game/).
 
+## Screenshots
+
+![Game Screenshot](screenshot.jpg)
+
 ## Features
 
 - Interactive card flipping.
