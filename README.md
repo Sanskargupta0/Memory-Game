@@ -12,7 +12,7 @@ Welcome to the Memory Game! This is a simple web-based memory game built using H
 
 ## Demo
 
-Check out the live demo [here](your-live-demo-url).
+Check out the live demo [here](https://sanskargupta0.github.io/Memory-Game/).
 
 ## Features
 
@@ -26,7 +26,7 @@ To run the game locally, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone your-repo-url
+    https://github.com/Sanskargupta0/Memory-Game.git
     ```
 
 2. Open the `index.html` file in your web browser.
