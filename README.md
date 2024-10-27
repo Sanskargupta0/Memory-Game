@@ -16,7 +16,7 @@ Check out the live demo [here](https://sanskargupta0.github.io/Memory-Game/).
 
 ## Screenshots
 
-![Game Screenshot](screenshot.jpg)
+![Game Screenshot](screenshot.png)
 
 ## Features
 

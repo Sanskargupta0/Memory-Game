@@ -1,65 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
-  //list all card options
+  // List all card options
   const cardArray = [
-    {
-      name: "fries",
-      img: "images/fries.png",
-    },
-    {
-      name: "cheeseburger",
-      img: "images/cheeseburger.png",
-    },
-    {
-      name: "ice-cream",
-      img: "images/ice-cream.png",
-    },
-    {
-      name: "pizza",
-      img: "images/pizza.png",
-    },
-    {
-      name: "milkshake",
-      img: "images/milkshake.png",
-    },
-    {
-      name: "hotdog",
-      img: "images/hotdog.png",
-    },
-    {
-      name: "fries",
-      img: "images/fries.png",
-    },
-    {
-      name: "cheeseburger",
-      img: "images/cheeseburger.png",
-    },
-    {
-      name: "ice-cream",
-      img: "images/ice-cream.png",
-    },
-    {
-      name: "pizza",
-      img: "images/pizza.png",
-    },
-    {
-      name: "milkshake",
-      img: "images/milkshake.png",
-    },
-    {
-      name: "hotdog",
-      img: "images/hotdog.png",
-    },
+    { name: "fries", img: "images/fries.png" },
+    { name: "cheeseburger", img: "images/cheeseburger.png" },
+    { name: "ice-cream", img: "images/ice-cream.png" },
+    { name: "pizza", img: "images/pizza.png" },
+    { name: "milkshake", img: "images/milkshake.png" },
+    { name: "hotdog", img: "images/hotdog.png" },
+    { name: "fries", img: "images/fries.png" },
+    { name: "cheeseburger", img: "images/cheeseburger.png" },
+    { name: "ice-cream", img: "images/ice-cream.png" },
+    { name: "pizza", img: "images/pizza.png" },
+    { name: "milkshake", img: "images/milkshake.png" },
+    { name: "hotdog", img: "images/hotdog.png" },
   ];
 
   cardArray.sort(() => 0.5 - Math.random());
 
   const grid = document.querySelector(".grid");
-  const resultDisplay = document.querySelector("#result");
+  const currentScoreDisplay = document.querySelector("#current-score");
+  const highScoreDisplay = document.querySelector("#high-score");
   let cardsChosen = [];
   let cardsChosenId = [];
   let cardsWon = [];
+  let currentScore = 0;
+  let highScore = localStorage.getItem("highScore") || 0;
 
-  //create your board
+  highScoreDisplay.textContent = highScore;
+
+  // Create your board
   function createBoard() {
     for (let i = 0; i < cardArray.length; i++) {
       const card = document.createElement("img");
@@ -70,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  //check for matches
+  // Check for matches
   function checkForMatch() {
     const cards = document.querySelectorAll("img");
     const optionOneId = cardsChosenId[0];
@@ -87,20 +56,30 @@ document.addEventListener("DOMContentLoaded", () => {
       cards[optionOneId].removeEventListener("click", flipCard);
       cards[optionTwoId].removeEventListener("click", flipCard);
       cardsWon.push(cardsChosen);
+      currentScore++;
+      currentScoreDisplay.textContent = currentScore;
+      if (currentScore > highScore) {
+        highScore = currentScore;
+        highScoreDisplay.textContent = highScore;
+        localStorage.setItem("highScore", highScore);
+      }
     } else {
       cards[optionOneId].setAttribute("src", "images/blank.png");
       cards[optionTwoId].setAttribute("src", "images/blank.png");
+      if (currentScore > 0) {
+        currentScore--;
+        currentScoreDisplay.textContent = currentScore;
+      }
       alert("Sorry, try again");
     }
     cardsChosen = [];
     cardsChosenId = [];
-    resultDisplay.textContent = cardsWon.length;
     if (cardsWon.length === cardArray.length / 2) {
-      resultDisplay.textContent = "Congratulations! You found them all!";
+      alert("Congratulations! You found them all!");
     }
   }
 
-  //flip your card
+  // Flip your card
   function flipCard() {
     let cardId = this.getAttribute("data-id");
     cardsChosen.push(cardArray[cardId].name);

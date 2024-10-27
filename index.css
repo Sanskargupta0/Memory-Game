@@ -1,7 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.score {
+  font-size: 18px;
+}
+
 .grid {
-    display: flex;
-    flex-wrap: wrap;
-    width: 400px;
-    height: 300px;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.grid img {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.grid img:hover {
+  transform: scale(1.05);
+}
